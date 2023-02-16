@@ -1,7 +1,20 @@
+using Congratulator.Db;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add service DatabaseContext
+var connectionString = builder.Configuration.GetConnectionString("CongratulatorDb");
+builder.Services.AddDbContext<DatabaseContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+});
+
+// Add service IPersonsDbRepository with implementation PersonsDbRepository
+builder.Services.AddTransient<IPersonsDbRepository, PersonsDbRepository>();
 
 var app = builder.Build();
 
