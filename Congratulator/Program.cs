@@ -1,4 +1,5 @@
 using Congratulator.Db;
+using Congratulator.WebApp.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,9 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 
 // Add service IPersonsDbRepository with implementation PersonsDbRepository
 builder.Services.AddTransient<IPersonsDbRepository, PersonsDbRepository>();
+
+// Add AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 
