@@ -9,7 +9,7 @@ namespace Congratulator.Db
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
     }
 }
