@@ -1,0 +1,38 @@
+﻿@model PersonViewModel
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mx-auto ">
+                <div class="text-danger font-weight-bold" asp-validation-summary=ModelOnly></div>
+                <div class="mb-3">
+                    <label asp-for="FirstName" class="form-label">Имя:</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Иван">
+                    <span style="color:lightcoral" asp-validation-for="FirstName" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LastName" class="form-label">Фамилия:</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Иванов" />
+                    <span style="color:lightcoral" asp-validation-for="LastName" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="SocialStatus" class="form-label">Статус:</label>
+                    <select asp-for="SocialStatus"
+                            asp-items="@Html.GetEnumSelectList<SocialStatusViewModel>()"
+                            class="form-select">
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="BirthDate" class="form-label">Дата рождения:</label>
+                    <input asp-for="BirthDate" type="date" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-outline-success">Сохранить</button>
+                <a class="btn btn-outline-danger" asp-controller="Person" asp-action="Remove" asp-route-Id="@Model.Id" role="button">Удалить</a>
+            </div>
+        </div>
+    </div>
+</form>
