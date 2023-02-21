@@ -14,8 +14,8 @@ namespace Congratulator.Db.Models
 
         [Column(TypeName = "date")]
         [DataType(DataType.Date)]
-        public DateTime? BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
-        public SocialStatus Status { get; set; }
+        public SocialStatus SocialStatus { get; set; }
     }
 }

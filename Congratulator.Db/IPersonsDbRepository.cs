@@ -11,6 +11,7 @@ namespace Congratulator.Db
         Task AddAsync(Person person);
 
         Task UpdateAsync(Person editedPerson);
+
         Task RemoveAsync(int id);
     }
 }

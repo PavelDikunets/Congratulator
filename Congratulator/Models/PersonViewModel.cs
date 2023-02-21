@@ -14,10 +14,6 @@ namespace Congratulator.WebApp.Models
 
         public DateTime BirthDate { get; set; }
 
-        public string? ImagePath { get; set; }
-
-        public IFormFile? UploadedFIle { get; set; }
-
         public SocialStatusViewModel SocialStatus { get; set; }
 
         public PersonViewModel()

@@ -30,8 +30,8 @@ namespace Congratulator.Db
 
         public async Task UpdateAsync(Person editedPerson)
         {
-            var currentPerson = await TryGetByIdAsync(editedPerson.Id);
-            _databaseContext.Persons.Remove(currentPerson!);
+            var personDb = await TryGetByIdAsync(editedPerson.Id);
+            _databaseContext.Persons.Remove(personDb!);
             await _databaseContext.AddAsync(editedPerson);
             await _databaseContext.SaveChangesAsync();
         }
