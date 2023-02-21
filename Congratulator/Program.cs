@@ -14,7 +14,7 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-// Add service IPersonsDbRepository with implementation PersonsDbRepository
+// Add service Persons Database Repository
 builder.Services.AddTransient<IPersonsDbRepository, PersonsDbRepository>();
 
 // Add AutoMapper
@@ -29,7 +29,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
