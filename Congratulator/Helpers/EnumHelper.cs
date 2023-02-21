@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace OnlineShopWebApp.Helpers
+namespace Congratulator.WebApp.Helpers
 {
     public class EnumHelper
     {
