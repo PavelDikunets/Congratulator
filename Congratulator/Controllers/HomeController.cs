@@ -1,26 +1,29 @@
-﻿using Congratulator.Models;
+﻿using AutoMapper;
+using Congratulator.Db;
+using Congratulator.Models;
+using Congratulator.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Congratulator.Controllers
+namespace Congratulator.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IPersonsDbRepository _personsDbRepository;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPersonsDbRepository personsDbRepository, IMapper mapper)
         {
-            _logger = logger;
+            _personsDbRepository = personsDbRepository;
+            _mapper = mapper;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
-        }
+            var persons = await _personsDbRepository.GetAllAsync();
 
-        public IActionResult Privacy()
-        {
-            return View();
+            var model = _mapper.Map<List<PersonViewModel>>(persons);
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
