@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Congratulator.Models
+namespace Congratulator.WebApp.Models
 {
     public enum SocialStatusViewModel
     {
-        [Display(Name = "Знакомые")]
+        [Display(Name = "Знакомый")]
         Familiar,
 
-        [Display(Name = "Сотрудники")]
+        [Display(Name = "Сотрудник")]
         Employee,
 
-        [Display(Name = "Друзья")]
+        [Display(Name = "Друг")]
         Friend,
     }
 }
