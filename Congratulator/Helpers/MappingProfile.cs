@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Congratulator.Db.Models;
-using Congratulator.Models;
+using Congratulator.WebApp.Models;
 
 namespace Congratulator.WebApp.Helpers
 {
