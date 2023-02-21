@@ -1,8 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<PersonViewModel>
+
+@{
+    ViewData["Title"] = "Поздравлятор";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="text-center"><h5>Дни рождения</h5></div>
+    <div class="row justify-content-center">
+        <div class="col-md-auto mx-auto">
+            <div><h6>Ближайшие:</h6></div>
+            <p />
+            @foreach (var person in Model.Where(p => p.BirthDate.Month - DateTime.Now.Date.Month < 0 || p.BirthDate.Day - DateTime.Now.Date.Day < 0))
+            {
+                <h6>@person.FirstName @person.LastName @person.BirthDate.Date.ToShortDateString()</h6>
+            }
+        </div>
+        <div class="col-md-auto mx-auto">
+            <div><h6>Сегодня:</h6></div>
+            <p />
+            @foreach (var person in Model.Where(b => b.BirthDate.Month == DateTime.Now.Date.Month && DateTime.Now.Date.Day == b.BirthDate.Day))
+            {
+                <h6>@person.FirstName @person.LastName @person.BirthDate.Date.ToShortDateString() Исполнилось @(DateTime.Now.Year - person.BirthDate.Year)</h6>
+            }
+        </div>
+    </div>
 </div>
