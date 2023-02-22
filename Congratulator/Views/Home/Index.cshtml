@@ -10,7 +10,7 @@
         <div class="col-md-auto mx-auto">
             <div><h6>Ближайшие:</h6></div>
             <p />
-            @foreach (var person in Model.Where(p => p.BirthDate.Month - DateTime.Now.Date.Month < 0 || p.BirthDate.Day - DateTime.Now.Date.Day < 0))
+            @foreach (var person in Model.Where(p => p.BirthDate.Month - DateTime.Now.Date.Month > 0 || p.BirthDate.Day - DateTime.Now.Date.Day > 0))
             {
                 <h6>@person.FirstName @person.LastName @person.BirthDate.Date.ToShortDateString()</h6>
             }
