@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Добавление";
 }
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
             <div class="col-md-3 mx-auto ">
@@ -28,6 +28,10 @@
                 <div class="mb-3">
                     <label asp-for="BirthDate" class="form-label">Дата рождения:</label>
                     <input asp-for="BirthDate" type="date" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Загрузить изображение:</label>
+                    <input name="UploadedFile" type="file" class="form-control" />
                 </div>
                 <button type="submit" class="btn btn-outline-success">Добавить</button>
             </div>

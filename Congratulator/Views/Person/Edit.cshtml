@@ -3,11 +3,14 @@
 @{
     ViewData["Title"] = "Редактирование";
 }
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <input type="hidden" name="Id" value="@Model.Id" />
     <div class="container">
         <div class="row">
-            <div class="col-md-3 mx-auto ">
+            <div class="col-md-1 mx-auto">
+                <img src="@Model.ImagePath" class="rounded-circle shadow-4" style="width: 400px;" alt="Avatar" />
+            </div>
+            <div class="col-md-4 mx-auto ">
                 <div class="text-danger font-weight-bold" asp-validation-summary=ModelOnly></div>
                 <div class="mb-3">
                     <label asp-for="FirstName" class="form-label">Имя:</label>
@@ -29,6 +32,10 @@
                 <div class="mb-3">
                     <label asp-for="BirthDate" class="form-label">Дата рождения:</label>
                     <input asp-for="BirthDate" type="date" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Загрузить изображение:</label>
+                    <input name="UploadedFile" type="file" class="form-control" />
                 </div>
                 <button type="submit" class="btn btn-outline-success">Сохранить</button>
                 <a class="btn btn-outline-danger" asp-controller="Person" asp-action="Remove" asp-route-Id="@Model.Id" role="button">Удалить</a>
