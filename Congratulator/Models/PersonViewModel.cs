@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Congratulator.Db.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Congratulator.WebApp.Models
 {
@@ -16,9 +17,14 @@ namespace Congratulator.WebApp.Models
 
         public SocialStatusViewModel SocialStatus { get; set; }
 
+        public string ImagePath { get; set; }
+
+        public IFormFile? UploadedFile { get; set; }
+
         public PersonViewModel()
         {
             SocialStatus = SocialStatusViewModel.Familiar;
+            ImagePath = "/images/avatars/default.jpg";
         }
     }
 }
