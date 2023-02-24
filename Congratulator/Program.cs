@@ -14,6 +14,7 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
+builder.Services.AddTransient<ImageProvider>();
 // Add service Persons Database Repository
 builder.Services.AddTransient<IPersonsDbRepository, PersonsDbRepository>();
 
