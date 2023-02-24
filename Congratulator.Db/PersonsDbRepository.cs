@@ -14,12 +14,12 @@ namespace Congratulator.Db
 
         public async Task<Person?> TryGetByIdAsync(int id)
         {
-            return await _databaseContext.Persons.FirstOrDefaultAsync(p => p.Id == id);
+            return await _databaseContext.Persons.Include(p => p.Avatar).FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<List<Person>> GetAllAsync()
         {
-            return await _databaseContext.Persons.ToListAsync();
+            return await _databaseContext.Persons.Include(p => p.Avatar).ToListAsync();
         }
 
         public async Task AddAsync(Person person)
