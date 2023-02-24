@@ -6,6 +6,7 @@ namespace Congratulator.Db
     public class DatabaseContext : DbContext
     {
         public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonImage> Images { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
@@ -33,6 +34,32 @@ namespace Congratulator.Db
                   new Person { Id = 16, FirstName = "TestUser16", LastName = "testUser16", BirthDate = new DateTime(day: 12, month: 2, year: 1983), SocialStatus = SocialStatus.Friend },
                   new Person { Id = 17, FirstName = "TestUser17", LastName = "testUser17", BirthDate = new DateTime(day: 11, month: 2, year: 1997), SocialStatus = SocialStatus.Employee }
                   );
+
+            modelBuilder.Entity<PersonImage>()
+                .HasOne(p => p.Person)
+                .WithOne(ad => ad.Avatar)
+                .HasForeignKey<PersonImage>(ad => ad.ImageOfPersonId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PersonImage>().HasData(
+            new PersonImage { Id = 1, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 1 },
+            new PersonImage { Id = 2, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 2 },
+            new PersonImage { Id = 3, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 3 },
+            new PersonImage { Id = 4, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 4 },
+            new PersonImage { Id = 5, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 5 },
+            new PersonImage { Id = 6, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 6 },
+            new PersonImage { Id = 7, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 7 },
+            new PersonImage { Id = 8, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 8 },
+            new PersonImage { Id = 9, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 9 },
+            new PersonImage { Id = 10, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 10 },
+            new PersonImage { Id = 11, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 11 },
+            new PersonImage { Id = 12, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 12 },
+            new PersonImage { Id = 13, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 13 },
+            new PersonImage { Id = 14, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 14 },
+            new PersonImage { Id = 15, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 15 },
+            new PersonImage { Id = 16, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 16 },
+            new PersonImage { Id = 17, ImagePath = "/images/avatars/default.jpg", ImageOfPersonId = 17 }
+            );
         }
     }
 }
