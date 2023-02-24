@@ -7,15 +7,13 @@ namespace Congratulator.Db.Models
     public class Person
     {
         public int Id { get; set; }
-
         public string? FirstName { get; set; }
-
         public string? LastName { get; set; }
 
         [Column(TypeName = "date")]
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
-
         public SocialStatus SocialStatus { get; set; }
+        public PersonImage Avatar { get; set; }
     }
 }
