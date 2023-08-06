@@ -32,4 +32,6 @@
 
 - MsSql;
 
+- LINQ;
+
 - AutoMapper;
