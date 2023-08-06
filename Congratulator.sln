@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Congratulator.WebApp", "Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Congratulator.Db", "Congratulator.Db\Congratulator.Db.csproj", "{A2E45146-6949-4AB8-9050-5DCEF75B670C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{5DE4FB02-F985-4A57-9B25-F6252827D7F4}"
+	ProjectSection(SolutionItems) = preProject
+		Congratulator\Views\logo.jpg = Congratulator\Views\logo.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
