@@ -1,4 +1,4 @@
-<img src="./img/logo.jpg" alt="Logo Congratulator" width='480' align="right">
+<img src="./img/logo.jpg" alt="Logo Congratulator" width='350' align="right">
  
 # Веб приложение Congratulator (Поздравлятор)
 
