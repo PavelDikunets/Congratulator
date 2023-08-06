@@ -20,18 +20,6 @@
 
 ---
 
-## Запуск:
-
-- Visual Studio:
-
-   Склонировать репозиторий в IDE:
-  
-        https://github.com/PavelDikunets/Congratulator.git
-
-     > Предупреждение: На локальной машине требуется наличие MsSql сервера!
-
----
-
 ## Стек:
 
 - Net 6.0;
