@@ -26,7 +26,7 @@
 
 - Net 6.0;
 
-- MVC
+- MVC;
 
 - EntityFramework;
 
